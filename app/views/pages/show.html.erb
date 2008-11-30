@@ -1,0 +1,11 @@
+<h1><%=h @page.title %></h1>
+
+<%= markdown h(@page.body) %>
+
+<p>
+  Written <%= @page.updated_at.to_s(:db) %> 
+  by <%= link_to @page.user.identity_url, @page.user.identity_url %>. 
+  <%= link_to "Version #{@page.version}", page_versions_path(@page) %>.
+</p>
+
+<p><%= link_to 'Edit this page', edit_page_path(@page) %></p>
